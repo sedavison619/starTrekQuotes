@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html Lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>My App</title>
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <h1 data-position="header">Live Long and Prosper</h1>
+        <section data-position="add-quote">
+            <h2>Add Quote</h2>
+            <form action="/quotes" method="POST">
+                <input type="text" placeholder="name" name="name" />
+                <input type="text" placeholder="quote" name="quote" />
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section data-position="quotes">
+            <h2>Quotes</h2>
+                <ul class="quotes">
+                    <% for(let i = 0; i < quotes.length; i++) {%>
+                    <li class="quote">
+                        <span><%= quotes[i].name %></span>
+                        <span><%= quotes[i].quote %></span>
+                    </li>
+                    <% } %>
+                </ul>
+        </section>
+        <section data-position="update-quote">
+            <div>
+                <h2>Q appears!</h2>
+                <p>Replace Captain Picard's first quote witha quote by Q</p>
+                <button id="update-button">Replace Captain Picard's quote</button>
+            </div>
+        </section>
+        <section data-position="delete-quote">
+            <div>
+                <h2>Q Vanishes</h2>
+                <p>Delete on quote by Q. Does nothing if there are no more Q quotes</p>
+                <button id="delete-button">Delete Q's quote</button>
+            </div>
+        </section>
+        <div id="message"></div>
+        <script src="main.js"></script>
+    </body>
+</html>
